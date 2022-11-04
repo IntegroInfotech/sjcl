@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "871916714280",
+    "project_id": "sjcl-2868f",
+    "storage_bucket": "sjcl-2868f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871916714280:android:69f1a936ea47d0d505781d",
+        "android_client_info": {
+          "package_name": "com.integro.sjcl.sjcl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871916714280-cud7ke9rhl4ghp1b1f79haf2mbg0a3qv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKOLptbVFZR7AKY5Zas1ydTdmNLHONpa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871916714280-cud7ke9rhl4ghp1b1f79haf2mbg0a3qv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

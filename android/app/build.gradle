@@ -22,6 +22,7 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
@@ -40,6 +41,17 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+    }
+
+    dependencies {
+        implementation 'com.android.support:multidex:1.0.3'
+
+        implementation platform('com.google.firebase:firebase-bom:30.4.1')
+
+
+        // TODO: Add the dependencies for Firebase products you want to use
+        // When using the BoM, don't specify versions in Firebase dependencies
+        implementation 'com.google.firebase:firebase-analytics'
     }
 
     buildTypes {

@@ -21,54 +21,61 @@ class HomeScreen extends StatelessWidget {
         ),
         Expanded(
           flex: 1,
-          child: Container(
-            color: Constants.primaryColorYellow,
-            child: Center(
-              child: Row(
-                children: [
-                  Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 5.0,
-                          top: 10,
-                        ),
-                        child: Image.asset(
-                          "assets/images/announcement.png",
-                          color: Constants.primaryColor,
-                          height: 50,
-                          width: 50,
-                        ),
-                      ),
-                      Image.asset(
-                        "assets/images/new_tag.png",
-                        height: 50,
-                        width: 50,
-                      ),
-                    ],
-                  ),
-                  Expanded(
-                    child: Marquee(
-                      text: 'Some sample text that takes some space.',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontFamily: "Poppins",
-                        fontStyle: FontStyle.italic,
-                        color: Colors.black,
-                      ),
-                      scrollAxis: Axis.horizontal,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      blankSpace: 20.0,
-                      velocity: 100.0,
-                      pauseAfterRound: const Duration(seconds: 1),
-                      startPadding: 10.0,
-                      accelerationDuration: const Duration(seconds: 1),
-                      accelerationCurve: Curves.linear,
-                      decelerationDuration: const Duration(milliseconds: 500),
-                      decelerationCurve: Curves.easeOut,
-                    ),
-                  ),
-                ],
+          child: GestureDetector(
+            onTap: () => openUrl(context, url: "https://connect.sjcl.edu.in/login", color: Constants.primaryColor),
+            child: Container(
+              color: Constants.primaryColorYellow,
+              child: const Center(
+                child: CustomText(
+                  title: 'Student & Faculty Login',
+                  color: Constants.primaryColor,
+                ),
+                // child: Row(
+                //   children: [
+                //     Stack(
+                //       children: [
+                //         Padding(
+                //           padding: const EdgeInsets.only(
+                //             left: 5.0,
+                //             top: 10,
+                //           ),
+                //           child: Image.asset(
+                //             "assets/images/announcement.png",
+                //             color: Constants.primaryColor,
+                //             height: 50,
+                //             width: 50,
+                //           ),
+                //         ),
+                //         Image.asset(
+                //           "assets/images/new_tag.png",
+                //           height: 50,
+                //           width: 50,
+                //         ),
+                //       ],
+                //     ),
+                //     // Expanded(
+                //     //   child: Marquee(
+                //     //     text: 'Login',
+                //     //     style: const TextStyle(
+                //     //       fontSize: 18,
+                //     //       fontFamily: "Poppins",
+                //     //       fontStyle: FontStyle.italic,
+                //     //       color: Colors.black,
+                //     //     ),
+                //     //     scrollAxis: Axis.horizontal,
+                //     //     crossAxisAlignment: CrossAxisAlignment.center,
+                //     //     blankSpace: 20.0,
+                //     //     velocity: 100.0,
+                //     //     pauseAfterRound: const Duration(seconds: 1),
+                //     //     startPadding: 10.0,
+                //     //     accelerationDuration: const Duration(seconds: 1),
+                //     //     accelerationCurve: Curves.linear,
+                //     //     decelerationDuration: const Duration(milliseconds: 500),
+                //     //     decelerationCurve: Curves.easeOut,
+                //     //   ),
+                //     // ),
+                //   ],
+                // ),
               ),
             ),
           ),
@@ -107,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.white,
               ),
               Expanded(
-                flex:3,
+                flex: 3,
                 child: SizedBox(
                   child: Column(
                     children: [
