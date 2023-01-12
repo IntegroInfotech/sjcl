@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:sjcl/constants/constants.dart';
 import 'package:sjcl/custom_widget/custom_text.dart';
-import 'package:sjcl/screens/open_url.dart';
+import 'package:add_2_calendar/add_2_calendar.dart';
 
 class EventsCard extends StatelessWidget {
-  final String title, pdf;
+  final String id, image, date, description, title, pdf;
 
-  const EventsCard({Key? key, required this.title, required this.pdf})
+  const EventsCard(
+      {Key? key,
+      required this.title,
+      required this.pdf,
+      required this.id,
+      required this.image,
+      required this.date,
+      required this.description})
       : super(key: key);
 
   @override
@@ -14,30 +21,64 @@ class EventsCard extends StatelessWidget {
     return Card(
       color: Constants.primaryColorWhite,
       child: SizedBox(
-        height: 75,
         width: double.infinity,
-        child: Row(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: CustomText(
-                  title: title,
-                  color: Constants.primaryColor,
-                  fontWeight: FontWeight.bold,
-                  textAlign: TextAlign.left,
+            Image.network(
+              image,
+              fit: BoxFit.cover,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomText(
+                title: title,
+                color: Constants.primaryColor,
+                fontWeight: FontWeight.bold,
+                textAlign: TextAlign.left,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: CustomText(
+                title: description,
+                color: Constants.primaryColor,
+                fontWeight: FontWeight.normal,
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor:MaterialStateProperty.all(Constants.primaryColor)
+                ),
+                onPressed: () {
+                  print("cliked");
+                  final Event event = Event(
+                    title: title,
+                    description: description,
+                    location: '',
+                    startDate: DateTime(0),
+                    endDate: DateTime(0),
+                  );
+                  Add2Calendar.addEvent2Cal(event);
+                },
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 8.0,right: 8.0),
+                  child: CustomText(
+                    title: "Add To Calendar",
+                    color: Constants.primaryColorYellow,
+                    fontWeight: FontWeight.normal,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
-            ),
-            IconButton(
-              onPressed: () =>
-                  openUrl(context, url: pdf, color: Constants.primaryColor),
-              icon: const Icon(
-                Icons.arrow_circle_down,
-                color: Colors.red,
-                size: 35,
-              ),
-            ),
+            )
           ],
         ),
       ),

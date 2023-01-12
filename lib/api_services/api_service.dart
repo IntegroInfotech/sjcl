@@ -12,13 +12,13 @@ import 'package:sjcl/model/notifications.dart';
 import 'package:sjcl/model/testimonials.dart';
 
 class ApiServices {
-  static const String baseUrl = 'https://www.sjcl.edu.in/sjcl_app';
+  static const String baseUrl = 'https://www.sjcl.edu.in/sjcl_app/';
 
   final String newsApi = '$baseUrl/sjcl_news.php';
   final String newsImagesApi = '$baseUrl/sjcl_newsimage.php';
   final String directorMessageApi = '$baseUrl/sjcl_directormsg.php';
   final String notificationsApi = '$baseUrl/sjcl_notification.php';
-  final String eventsApi = '$baseUrl/sjcl_events.php';
+  final String eventsApi = '$baseUrl/sjcl_event.php';
   final String photosApi = '$baseUrl/sjcl_photos.php';
   final String managementFolderApi = '$baseUrl/sjcl_management.php';
   final String managementListApi = '$baseUrl/sjcl_management1.php';
@@ -26,12 +26,12 @@ class ApiServices {
   final String facilitiesApi = '$baseUrl/sjcl_facilities.php';
   final String facilityDetailsApi = '$baseUrl/sjcl_facility1.php';
 
-
   Future<List<SjclNew>> fetchNews() async {
     try {
       http.Response response = await http.get(Uri.parse(newsApi));
       if (response.statusCode == 200) {
         var json = response.body;
+        print("object${response.body}");
         var jsonData = News.fromJson(json).sjclNews;
         return jsonData;
       }
@@ -131,8 +131,9 @@ class ApiServices {
   Future<List<SjclEvent>> fetchEvents() async {
     try {
       http.Response response = await http.get(Uri.parse(eventsApi));
+      print("events guru ${response.statusCode}");
       if (response.statusCode == 200) {
-        var jsonData = Events.fromJson(response.body).sjclEvents;
+        var jsonData = EventsResponse.fromJson(response.body).sjclEvent;
         return jsonData;
       } else {
         return [];
@@ -157,7 +158,6 @@ class ApiServices {
     }
     return [];
   }
-
 
   Future<List<SjclFacility>> fetchSjclSjclFacility() async {
     try {

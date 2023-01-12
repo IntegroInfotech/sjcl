@@ -28,7 +28,7 @@ class CustomText extends StatelessWidget {
         color: color ?? Colors.white,
         fontFamily: 'Poppins',
         fontStyle: fontStyle ?? FontStyle.normal,
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: fontWeight ?? FontWeight.normal,
       ),
       textAlign: textAlign ?? TextAlign.center,

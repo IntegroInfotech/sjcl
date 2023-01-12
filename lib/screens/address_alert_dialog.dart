@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sjcl/constants/constants.dart';
-import 'package:sjcl/custom_widget/custom_text.dart';
+import 'package:sjcl/custom_widget/custom_text.dart'; 
 import 'package:sjcl/screens/open_url.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 

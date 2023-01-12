@@ -28,14 +28,18 @@ class _EventsScreenState extends State<EventsScreen> {
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
                   if (snapshot.hasData) {
-                    print('jsonData ${snapshot.data}');
+                    print(' events jsonData ${snapshot.data}');
                     final events = snapshot.data ?? [];
                     return ListView.builder(
                       itemCount: events.length,
                       itemBuilder: (context, index) {
                         return EventsCard(
+                          id: events[index].id,
                           title: events[index].title,
                           pdf: events[index].pdf,
+                          image: events[index].image,
+                          date: events[index].date,
+                          description: events[index].description,
                         );
                       },
                     );

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sjcl/card/news_card_slider.dart';
 import 'package:sjcl/constants/constants.dart';
 import 'package:sjcl/custom_widget/custom_text.dart';
 import 'package:sjcl/screens/facilities_page.dart';
 import 'package:sjcl/screens/management_folders_page.dart';
 import 'package:sjcl/screens/open_url.dart';
-import 'package:sjcl/card/news_card_slider.dart';
 import 'package:sjcl/screens/testmonials_page.dart';
-import 'package:marquee/marquee.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
